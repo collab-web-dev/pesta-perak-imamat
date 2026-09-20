@@ -3,7 +3,7 @@ const form = document.getElementById('registrationForm');
 const confirmModal = document.getElementById('confirmModal');
 const successModal = document.getElementById('successModal');
 
-const phoneRegex = /^\+628[0-9]{8,11}$/;
+const phoneRegex = /^\08[0-9]{8,11}$/;
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 function toggleFormState(disabled) {
@@ -56,7 +56,7 @@ function validateForm() {
         showError(telephone, 'Wajib diisi');
         isValid = false;
     } else if (!phoneRegex.test(telephone.value.trim())) {
-        showError(telephone, 'Format nomor harus +628XXXXXXXXXX');
+        showError(telephone, 'Format nomor harus 08XXXXXXXXXX');
         isValid = false;
     } else {
         clearError(telephone);
