@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrasi - Pesta Perak Imamat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="card">
+       <div class="header-decor">
+            <div class="tagline">Misi, Misa, Mozaik Kehidupan</div>
+            <h1 class="main-title">FORM REGISTRASI ACARA</h1>
+            <div class="silver-badge">25 TAHUN IMAMAT</div>
+        </div>
+
+        <div class="form-section">
+            <form id="registrationForm" action="https://docs.google.com/forms/d/e/1FAIpQLSd27uHbWzezf2-YcyrvmFBE78XWaskZpmoolWGeZ4OLYv-MPw/formResponse" method="POST" target="hidden_iframe" novalidate>
+                
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap</label>
+                    <input type="text" id="nama" name="entry.1170390973" placeholder="Masukkan nama lengkap Anda">
+                    <small class="error-msg"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="telephone">Nomor Telepon Aktif</label>
+                    <input type="tel" id="telephone" name="entry.1973376332" placeholder="+628XXXXXXXXXX">
+                    <small class="error-msg"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email (Surel)</label>
+                    <input type="email" id="email" name="entry.742412724" placeholder="XXXXXXXX@surel-anda.domain">
+                    <small class="error-msg"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmation">Konfirmasi Kehadiran</label>
+                    <select id="confirmation" name="entry.1007031129">
+                        <option value="" disabled selected>-- Pilih Kehadiran --</option>
+                        <option value="Hadir">Hadir pada seluruh rangkaian acara</option>
+                        <option value="Hadir Misa Saja">Hadir pada perayaan ekaristi saja</option>
+                        <option value="Tidak Hadir">Tidak dapat hadir</option>
+                    </select>
+                    <small class="error-msg"></small>
+                </div>
+
+                <button type="button" class="btn-submit" onclick="openConfirmationModal()">DAFTAR SEKARANG</button>
+            </form>
+        </div>
+
+        <div class="footer">
+            <p>Hormat Kami,</p>
+            <p><strong>DPPH Paroki Cicadas - Gereja Santa Odilia</strong></p>
+            <p>Bandung</p>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="confirmModal">
+        <div class="modal-box">
+            <div class="modal-title">Konfirmasi Data</div>
+            <div class="modal-text">
+                Pastikan data diri Anda sudah sesuai untuk kepentingan registrasi! Data yang telah didaftarkan tidak bisa disunting.
+            </div>
+            <div class="modal-buttons">
+                <button class="btn-modal btn-cancel" onclick="closeConfirmationModal()">Cek Kembali</button>
+                <button class="btn-modal btn-confirm" onclick="submitForm()">Ya, Kirim</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-box">
+            <div class="modal-title" style="color: #4CAF50;">Registrasi Berhasil!</div>
+            <div class="modal-text">
+                Data Anda telah berhasil terkirim. Terima kasih atas partisipasinya.
+            </div>
+            <div class="modal-buttons">
+                <button class="btn-modal btn-confirm" style="background: #4CAF50;" onclick="redirectToIndex()">Kembali ke Beranda</button>
+            </div>
+        </div>
+    </div>
+
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { handleSuccess(); }"></iframe>
+    <script src="js/registerForm.js"></script>
+</body>
+</html>
