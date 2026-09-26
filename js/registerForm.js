@@ -3,8 +3,7 @@ const form = document.getElementById('registrationForm');
 const confirmModal = document.getElementById('confirmModal');
 const successModal = document.getElementById('successModal');
 
-const phoneRegex = /^08[0-9]{8,11}$/;
-const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const phoneRegex = /08[0-9]{8,11}$/;
 
 function toggleFormState(disabled) {
     const elements = form.querySelectorAll('input, select, button');
@@ -42,8 +41,8 @@ function validateForm() {
 
     const nama = document.getElementById('nama');
     const telephone = document.getElementById('telephone');
-    const email = document.getElementById('email');
     const confirmation = document.getElementById('confirmation');
+    const stay = document.getElementById('stay');
 
     if (nama.value.trim() === '') {
         showError(nama, 'Wajib diisi');
@@ -62,14 +61,11 @@ function validateForm() {
         clearError(telephone);
     }
 
-    if (email.value.trim() === '') {
-        showError(email, 'Wajib diisi');
-        isValid = false;
-    } else if (!emailRegex.test(email.value.trim())) {
-        showError(email, 'Format email tidak valid (contoh: nama@domain.com)');
+    if (stay.value === '') {
+        showError(stay, 'Wajib diisi');
         isValid = false;
     } else {
-        clearError(email);
+        clearError(stay);
     }
 
     if (confirmation.value === '') {
@@ -94,6 +90,7 @@ function closeConfirmationModal() {
 
 function submitForm() {
     submitted = true;
+    document.getElementById('stay').disabled = false;
     closeConfirmationModal();
     
     form.submit();

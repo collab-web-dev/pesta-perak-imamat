@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pesta Perak Imamat</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -80,7 +81,7 @@
 
         <div class="cta-section">
             <p class="cta-text">Isi formulir dan daftarkan segera diri Anda!</p>
-            <a href="register.html" class="btn-submit btn-cta">Daftar Sekarang!</a>
+            <button type="button" class="btn-submit btn-cta" onclick="openModal()">Daftar Sekarang!</button>
         </div>
 
         <div class="footer">
@@ -90,6 +91,38 @@
         </div>
     </div>
 
+    <div id="registrationModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            
+            <h2 class="modal-title">Pilih Kategori Pendaftaran</h2>
+            
+            <div class="modal-note">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>*<strong>Catatan:</strong> Undangan Khusus hanya diperuntukkan bagi tamu undangan yang telah dihubungi secara pribadi oleh panitia.</span>
+            </div>
+
+            <div class="modal-options">
+                <a href="register.html" class="btn-option btn-regular">
+                    <i class="fa-solid fa-ticket option-icon"></i>
+                    <div class="option-text">
+                        <span class="option-title">Undangan Reguler</span>
+                        <span class="option-sub">Untuk Umat & Umum</span>
+                    </div>
+                </a>
+
+                <a href="reg-vip.html" class="btn-option btn-vip">
+                    <i class="fa-solid fa-crown option-icon"></i>
+                    <div class="option-text">
+                        <span class="option-title">Undangan Khusus</span>
+                        <span class="option-sub">Tamu VIP / Personal</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <script src="js/countdown.js"></script>
+    <script src="js/prereg.js"></script>
 </body>
 </html>
